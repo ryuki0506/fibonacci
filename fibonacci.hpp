@@ -1,9 +1,13 @@
 #include<tuple>
 using namespace std;
 
-int fibonacci(int n){
-    int v0=0;
-    int v1=1;
+#include <boost/multiprecision/cpp_int.hpp>
+namespace mp=boost::multiprecision;
+using Bint = mp::cpp_int;
+
+Bint fibonacci(int n){
+    Bint v0=0;
+    Bint v1=1;
     
     if(n<0){
         for (int i = -1; i >= n; --i)
