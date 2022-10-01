@@ -1,12 +1,26 @@
-#pragma once
+#include<tuple>
+using namespace std;
 
 int fibonacci(int n){
-    if (n<0)
-        return fibonacci(n+2)-fibonacci(n+1);
-    if (n==0)
-        return 0;
-    if (n==1)
-        return 1;
-    else
-        return fibonacci(n-1)+fibonacci(n-2);
-}
+    int v0=0;
+    int v1=1;
+    
+    if(n<0){
+        for (int i = -1; i >= n; --i)
+        {
+            tie(v0,v1)=make_tuple(v1-v0,v0);
+        }
+        return v0;
+    }
+    if (n==0){
+        return  v0;
+    }
+    if (n==1){
+        return  v1;
+    }
+    for (int i = 2; i <= n; ++i)
+        {
+            tie(v1,v0)=make_tuple(v1+v0,v1);
+        }
+        return v1;
+    }
