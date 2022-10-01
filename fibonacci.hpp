@@ -1,6 +1,10 @@
 #pragma once
 
-int fibonacci(int n){
+#include <boost/multiprecision/cpp_int.hpp>
+namespace mp=boost::multiprecision;
+using Bint = mp::cpp_int;
+
+Bint fibonacci(int n){
     if (n<0)
         return fibonacci(n+2)-fibonacci(n+1);
     if (n==0)
